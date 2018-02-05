@@ -17,7 +17,7 @@ start(_Type, _Args) ->
 
 start() ->
   lager:info("Starting bugsnag notifier"),
-  ReleaseState = case application:get_env(bugsnag, release_state) of
+  ReleaseStage = case application:get_env(bugsnag, release_stage) of
     {ok, Value} -> Value;
     undefined -> undefined
   end,
@@ -29,7 +29,7 @@ start() ->
           error_logger:add_report_handler(bugsnag_error_logger);
         _ -> ok
       end,
-      bugsnag_sup:start_link({ApiKey, ReleaseState});
+      bugsnag_sup:start_link({ApiKey, ReleaseStage});
     undefined -> {error, no_api_key}
   end.
 

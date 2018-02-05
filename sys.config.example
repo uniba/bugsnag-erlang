@@ -2,6 +2,6 @@
   {bugsnag, [
     {error_logger, true},
     {api_key, "ENTER_API_KEY"},
-    {release_state, "development"}
+    {release_stage, "development"}
   ]}
 ].

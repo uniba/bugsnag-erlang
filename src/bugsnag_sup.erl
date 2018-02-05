@@ -22,5 +22,5 @@ init(Args) ->
 procs(disabled) ->
     %% bugsnag is disabled in the config
     [];
-procs({ApiKey, ReleaseState}) ->
-    [?CHILD(bugsnag, worker, [ApiKey, ReleaseState])].
+procs({ApiKey, ReleaseStage}) ->
+    [?CHILD(bugsnag, worker, [ApiKey, ReleaseStage])].
